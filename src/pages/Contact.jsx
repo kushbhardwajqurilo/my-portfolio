@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 import {
   Mail,
   Phone,
@@ -32,15 +33,20 @@ export default function ContactPage() {
     setSubmitStatus(null);
 
     try {
-      // Simulate form submission
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      // Send data to your backend API
+      const res = await axios.post(
+        "http://localhost:4001/visitor/visitor-message",
+        data
+      );
 
-      // Here you would typically send the data to your backend
-      console.log("Form submitted:", data);
-
-      setSubmitStatus("success");
-      reset();
+      if (res.status === 200) {
+        setSubmitStatus("success");
+        reset();
+      } else {
+        setSubmitStatus("error");
+      }
     } catch (error) {
+      console.error("Send message error:", error);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
@@ -57,10 +63,9 @@ export default function ContactPage() {
     {
       icon: Phone,
       label: "Phone",
-      value: "+91 9654165886", // Displayed number
-      href: "tel:+919654165886", // Clickable link
+      value: "+91 9654165886",
+      href: "tel:+919654165886",
     },
-
     {
       icon: MapPin,
       label: "Location",
@@ -78,7 +83,7 @@ export default function ContactPage() {
     },
     {
       name: "LinkedIn",
-      href: "https://www.linkedin.com/in/kushbhardwajdev05?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      href: "https://www.linkedin.com/in/kushbhardwajdev05",
       icon: Linkedin,
       color: "hover:text-blue-400",
     },
@@ -191,7 +196,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Quick Response Promise */}
+              {/* Quick Response */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -206,8 +211,8 @@ export default function ContactPage() {
                   </h3>
                 </div>
                 <p className="text-gray-300">
-                  I typically respond to messages within 24 hours. For urgent
-                  inquiries, feel free to reach out via phone or LinkedIn.
+                  I typically respond within 24 hours. For urgent inquiries,
+                  reach out via phone or LinkedIn.
                 </p>
               </motion.div>
             </motion.div>
@@ -225,115 +230,93 @@ export default function ContactPage() {
               </h2>
 
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                {/* Name Field */}
+                {/* Name */}
                 <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium text-gray-300 mb-2"
-                  >
+                  <label className="block text-sm text-gray-300 mb-2">
                     Full Name *
                   </label>
                   <input
-                    id="name"
                     type="text"
                     {...register("name", {
                       required: "Name is required",
-                      minLength: {
-                        value: 2,
-                        message: "Name must be at least 2 characters",
-                      },
+                      minLength: { value: 2, message: "Min 2 characters" },
                     })}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-colors"
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white"
                     placeholder="Your full name"
                   />
                   {errors.name && (
                     <p className="mt-1 text-sm text-red-400 flex items-center gap-1">
-                      <AlertCircle size={14} />
-                      {errors.name.message}
+                      <AlertCircle size={14} /> {errors.name.message}
                     </p>
                   )}
                 </div>
 
-                {/* Email Field */}
+                {/* Email */}
                 <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-gray-300 mb-2"
-                  >
+                  <label className="block text-sm text-gray-300 mb-2">
                     Email Address *
                   </label>
                   <input
-                    id="email"
                     type="email"
                     {...register("email", {
                       required: "Email is required",
                       pattern: {
-                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                        message: "Invalid email address",
+                        value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                        message: "Invalid email",
                       },
                     })}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-colors"
-                    placeholder="your.email@example.com"
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white"
+                    placeholder="your@email.com"
                   />
                   {errors.email && (
                     <p className="mt-1 text-sm text-red-400 flex items-center gap-1">
-                      <AlertCircle size={14} />
-                      {errors.email.message}
+                      <AlertCircle size={14} /> {errors.email.message}
                     </p>
                   )}
                 </div>
 
-                {/* Subject Field */}
+                {/* Subject */}
                 <div>
-                  <label
-                    htmlFor="subject"
-                    className="block text-sm font-medium text-gray-300 mb-2"
-                  >
+                  <label className="block text-sm text-gray-300 mb-2">
                     Subject
                   </label>
                   <input
-                    id="subject"
                     type="text"
                     {...register("subject")}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-colors"
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white"
                     placeholder="What's this about?"
                   />
                 </div>
 
-                {/* Message Field */}
+                {/* Message */}
                 <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-gray-300 mb-2"
-                  >
+                  <label className="block text-sm text-gray-300 mb-2">
                     Message *
                   </label>
                   <textarea
-                    id="message"
                     rows={5}
                     {...register("message", {
                       required: "Message is required",
                       minLength: {
                         value: 10,
-                        message: "Message must be at least 10 characters",
+                        message: "At least 10 characters",
                       },
                     })}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-colors resize-none"
-                    placeholder="Tell me about your project, question, or just say hello!"
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white resize-none"
+                    placeholder="Tell me about your project or just say hello!"
                   />
                   {errors.message && (
                     <p className="mt-1 text-sm text-red-400 flex items-center gap-1">
-                      <AlertCircle size={14} />
-                      {errors.message.message}
+                      <AlertCircle size={14} /> {errors.message.message}
                     </p>
                   )}
                 </div>
 
-                {/* Submit Button */}
+                {/* Submit */}
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg font-semibold text-white hover:from-blue-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-[#0A0A0F] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg font-semibold text-white hover:from-blue-600 hover:to-purple-700 transition-all duration-300 disabled:opacity-50"
                 >
                   {isSubmitting ? (
                     <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -343,17 +326,14 @@ export default function ContactPage() {
                   {isSubmitting ? "Sending..." : "Send Message"}
                 </button>
 
-                {/* Status Messages */}
+                {/* Status */}
                 {submitStatus === "success" && (
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     className="p-4 bg-green-500/20 border border-green-500/30 rounded-lg text-green-300 flex items-center gap-2"
                   >
-                    <CheckCircle size={20} />
-                    <span>
-                      Message sent successfully! I'll get back to you soon.
-                    </span>
+                    <CheckCircle size={20} /> Message sent successfully!
                   </motion.div>
                 )}
 
@@ -363,71 +343,11 @@ export default function ContactPage() {
                     animate={{ opacity: 1, y: 0 }}
                     className="p-4 bg-red-500/20 border border-red-500/30 rounded-lg text-red-300 flex items-center gap-2"
                   >
-                    <AlertCircle size={20} />
-                    <span>
-                      Something went wrong. Please try again or reach out via
-                      email.
-                    </span>
+                    <AlertCircle size={20} /> Something went wrong. Try again.
                   </motion.div>
                 )}
               </form>
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-              Frequently Asked Questions
-            </h2>
-          </motion.div>
-
-          <div className="space-y-6">
-            {[
-              {
-                question: "What's your typical project timeline?",
-                answer:
-                  "Project timelines vary based on complexity, but most websites take 2-6 weeks from concept to launch. I'll provide a detailed timeline during our initial consultation.",
-              },
-              {
-                question: "Do you work with international clients?",
-                answer:
-                  "Absolutely! I work with clients worldwide and am experienced in remote collaboration across different time zones.",
-              },
-              {
-                question: "What technologies do you specialize in?",
-                answer:
-                  "I specialize in React, Next.js, Node.js, and modern web technologies. I'm always learning and adapting to the latest industry standards.",
-              },
-              {
-                question: "Do you provide ongoing support and maintenance?",
-                answer:
-                  "Yes, I offer ongoing support and maintenance packages to ensure your website stays updated, secure, and performing optimally.",
-              },
-            ].map((faq, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6"
-              >
-                <h3 className="text-lg font-semibold text-white mb-3">
-                  {faq.question}
-                </h3>
-                <p className="text-gray-300 leading-relaxed">{faq.answer}</p>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>

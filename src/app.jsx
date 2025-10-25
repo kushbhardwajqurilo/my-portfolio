@@ -8,7 +8,7 @@ import ProjectDetail from "./pages/ProjectDetail";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Contact from "./pages/Contact";
-
+// ",
 export default function App() {
   useEffect(() => {
     const trackVisitor = async () => {
