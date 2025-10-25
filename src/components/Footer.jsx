@@ -87,12 +87,12 @@ export default function Footer() {
             >
               Projects
             </a>
-            <a
+            {/* <a
               href="/blog"
               className="hover:text-white transition-colors duration-200"
             >
               Blog
-            </a>
+            </a> */}
             <a
               href="/contact"
               className="hover:text-white transition-colors duration-200"
