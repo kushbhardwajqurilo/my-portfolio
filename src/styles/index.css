@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* custom */
+:root{
+  --bg: #0A0A0F;
+}
+body {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+}
+
+/* utility to show soft glow on focused elements */
+:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(50,214,255,0.06);
+}
