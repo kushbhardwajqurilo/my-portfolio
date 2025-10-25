@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [react()],
 
   // Relative paths for assets so Vercel serves them correctly
-  base: "./",
+  base: "/",
 
   build: {
     outDir: "dist", // matches vercel.json outputDirectory
