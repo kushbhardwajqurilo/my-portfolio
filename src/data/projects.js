@@ -1,5 +1,8 @@
 const slugifyTitle = (title) =>
-  title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
 
 export const projects = [
   {
@@ -117,6 +120,40 @@ export const projects = [
       "The product had to present sensitive financial information in a way that felt simple, helpful, and low-stress on small screens.",
     impact:
       "The updated flows improve comprehension, reduce friction in data entry, and help users reach meaningful debt insights faster.",
+  },
+  {
+    id: 3,
+    title: "Debt Relief India Admin Panel",
+    slug: slugifyTitle("Barber Syndicate"),
+    category: "Web Apps",
+    featured: true,
+    image:
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1777028262/Screenshot_2026-04-24_161357_ypcpck.png",
+    description:
+      "A premium wholesale cosmetics website focused on product clarity, trust, and a polished buying experience for business customers.",
+    longDescription:
+      "Barber Syndicate presents wholesale cosmetics and beauty products in a clean, conversion-focused layout. The site is designed to help buyers understand the catalog quickly, evaluate product quality, and move toward inquiry or purchase with confidence.",
+    tech: ["React", "Node.js", "MongoDB", "Cloudinary"],
+    links: [
+      {
+        label: "Visit Website",
+        url: "https://app.debtreliefindia.com",
+      },
+    ],
+    metrics: [
+      { label: "Audience", value: "B2B buyers" },
+      { label: "Focus", value: "Wholesale" },
+      { label: "Visuals", value: "Product led" },
+    ],
+    highlights: [
+      "Structured the experience around trust, product presentation, and business intent.",
+      "Used a cleaner content hierarchy to make wholesale browsing easier.",
+      "Designed for responsive browsing across desktop and mobile.",
+    ],
+    challenge:
+      "The main goal was to make a wholesale catalog feel premium and easy to scan without overwhelming business buyers.",
+    impact:
+      "The site gives the brand a stronger digital storefront and makes product discovery easier for wholesale inquiries.",
   },
 ];
 

@@ -104,8 +104,10 @@ export default function Footer() {
             <div className="accent-line my-8" />
 
             <div className="flex flex-col gap-3 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between">
-              <p>Copyright {new Date().getFullYear()} Kush Bhardwaj. All rights reserved.</p>
-              <p>Built with React, motion, and a lot of attention to detail.</p>
+              <p>
+                Copyright {new Date().getFullYear()} Kush Bhardwaj. All rights
+                reserved.
+              </p>
             </div>
           </motion.div>
         </div>

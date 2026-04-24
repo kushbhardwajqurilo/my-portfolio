@@ -43,15 +43,18 @@ export default function HomePage() {
               transition={{ duration: 0.7 }}
               className="space-y-8"
             >
-              <span className="eyebrow">Full-stack developer based in India</span>
+              <span className="eyebrow">
+                Full-stack developer based in India
+              </span>
               <div className="space-y-6">
                 <h1 className="display-title max-w-4xl">
-                  Building standout interfaces that feel premium, fast, and alive.
+                  Building standout interfaces that feel premium, fast, and
+                  alive.
                 </h1>
                 <p className="section-copy max-w-2xl">
-                  I design and ship polished web and mobile products with a focus
-                  on clear storytelling, strong UX decisions, and production-ready
-                  engineering.
+                  I design and ship polished web and mobile products with a
+                  focus on clear storytelling, strong UX decisions, and
+                  production-ready engineering.
                 </p>
               </div>
 
@@ -73,7 +76,9 @@ export default function HomePage() {
                   { value: "100%", label: "Responsive-first thinking" },
                 ].map((stat) => (
                   <div key={stat.label} className="metric-tile">
-                    <p className="text-2xl font-bold text-white">{stat.value}</p>
+                    <p className="text-2xl font-bold text-white">
+                      {stat.value}
+                    </p>
                     <p className="mt-1 text-sm text-slate-400">{stat.label}</p>
                   </div>
                 ))}
@@ -118,11 +123,11 @@ export default function HomePage() {
                   </span>
                 </div>
 
-                <div className="media-frame">
+                <div className="media-frame ">
                   <img
                     src="https://res.cloudinary.com/dqwc7j44b/image/upload/v1777014525/ChatGPT_Image_Dec_26_2025_01_57_05_PM_qzwulh.png"
                     alt="Kush Bhardwaj portrait"
-                    className="h-[26rem] w-full object-cover"
+                    className="h-[26rem] w-sm object-cover"
                   />
                 </div>
 
@@ -175,8 +180,12 @@ export default function HomePage() {
                   <div className="mb-4 inline-flex rounded-2xl border border-white/10 bg-white/5 p-3 text-[#76f0d6]">
                     <Icon size={20} />
                   </div>
-                  <h3 className="text-xl font-bold text-white">{value.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-400">{value.copy}</p>
+                  <h3 className="text-xl font-bold text-white">
+                    {value.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-7 text-slate-400">
+                    {value.copy}
+                  </p>
                 </motion.div>
               );
             })}
@@ -190,7 +199,8 @@ export default function HomePage() {
             <div className="space-y-4">
               <span className="eyebrow">Selected work</span>
               <h2 className="section-title max-w-3xl">
-                Projects built to balance visual character with real product needs.
+                Projects built to balance visual character with real product
+                needs.
               </h2>
             </div>
             <Link to="/projects" className="btn-ghost">
@@ -223,13 +233,18 @@ export default function HomePage() {
                       Featured
                     </span>
                   </div>
-                  <h3 className="text-2xl font-bold text-white">{project.title}</h3>
+                  <h3 className="text-2xl font-bold text-white">
+                    {project.title}
+                  </h3>
                   <p className="line-clamp-3 text-sm leading-7 text-slate-400">
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {project.tech.slice(0, 3).map((item) => (
-                      <span key={item} className="pill border-white/8 text-[11px] tracking-[0.18em]">
+                      <span
+                        key={item}
+                        className="pill border-white/8 text-[11px] tracking-[0.18em]"
+                      >
                         {item}
                       </span>
                     ))}
@@ -244,7 +259,10 @@ export default function HomePage() {
                       Open project
                       <ArrowRight size={16} />
                     </a>
-                    <Link to={`/projects/${project.slug}`} className="btn-ghost">
+                    <Link
+                      to={`/projects/${project.slug}`}
+                      className="btn-ghost"
+                    >
                       Case study
                     </Link>
                   </div>
@@ -266,7 +284,8 @@ export default function HomePage() {
             <div className="space-y-4">
               <span className="eyebrow">Ready to build</span>
               <h2 className="section-title max-w-2xl">
-                If you want a product that feels sharp, fast, and custom, let&apos;s talk.
+                If you want a product that feels sharp, fast, and custom,
+                let&apos;s talk.
               </h2>
               <p className="section-copy max-w-2xl">
                 I can help with landing pages, dashboards, product redesigns,
