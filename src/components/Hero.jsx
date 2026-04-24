@@ -71,7 +71,7 @@ export default function HomePage() {
 
               <div className="grid gap-4 sm:grid-cols-3">
                 {[
-                  { value: "3+", label: "Years building products" },
+                  { value: "8+", label: "Years building products" },
                   { value: "10+", label: "Production launches" },
                   { value: "100%", label: "Responsive-first thinking" },
                 ].map((stat) => (
