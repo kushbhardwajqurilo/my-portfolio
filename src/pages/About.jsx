@@ -3,14 +3,13 @@ import {
   Code2,
   Database,
   Globe,
-  Smartphone,
   Server,
   GitBranch,
   Calendar,
   MapPin,
-  Download,
   ExternalLink,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function AboutPage() {
   const skills = [
@@ -18,44 +17,40 @@ export default function AboutPage() {
       category: "Frontend",
       icon: Globe,
       technologies: [
-        { name: "React", level: 95, color: "from-blue-400 to-blue-600" },
-        { name: "Next.js", level: 90, color: "from-gray-400 to-gray-600" },
-        { name: "TailwindCSS", level: 85, color: "from-cyan-400 to-cyan-600" },
-        { name: "TypeScript", level: 80, color: "from-blue-500 to-blue-700" },
+        { name: "React", level: 95, color: "from-cyan-300 to-cyan-500" },
+        { name: "Next.js", level: 90, color: "from-slate-300 to-slate-500" },
+        { name: "TailwindCSS", level: 85, color: "from-teal-300 to-teal-500" },
+        { name: "TypeScript", level: 80, color: "from-sky-400 to-blue-600" },
       ],
     },
     {
       category: "Backend",
       icon: Server,
       technologies: [
-        { name: "Node.js", level: 90, color: "from-green-400 to-green-600" },
-        { name: "Express.js", level: 85, color: "from-gray-400 to-gray-600" },
-        { name: "Python", level: 75, color: "from-yellow-400 to-yellow-600" },
-        {
-          name: "REST APIs",
-          level: 90,
-          color: "from-purple-400 to-purple-600",
-        },
+        { name: "Node.js", level: 90, color: "from-emerald-300 to-emerald-600" },
+        { name: "Express.js", level: 85, color: "from-slate-300 to-slate-500" },
+        { name: "Python", level: 75, color: "from-amber-300 to-orange-500" },
+        { name: "REST APIs", level: 90, color: "from-orange-300 to-orange-500" },
       ],
     },
     {
       category: "Database",
       icon: Database,
       technologies: [
-        { name: "MongoDB", level: 80, color: "from-green-500 to-green-700" },
-        { name: "PostgreSQL", level: 75, color: "from-blue-500 to-blue-700" },
-        { name: "MySQL", level: 80, color: "from-red-400 to-red-600" },
-        { name: "Firebase", level: 85, color: "from-orange-400 to-orange-600" },
+        { name: "MongoDB", level: 80, color: "from-emerald-400 to-emerald-700" },
+        { name: "PostgreSQL", level: 75, color: "from-sky-400 to-blue-700" },
+        { name: "MySQL", level: 80, color: "from-rose-300 to-rose-500" },
+        { name: "Firebase", level: 85, color: "from-amber-300 to-orange-500" },
       ],
     },
     {
       category: "Tools & Others",
       icon: GitBranch,
       technologies: [
-        { name: "Git", level: 90, color: "from-orange-400 to-orange-600" },
-        { name: "Docker", level: 75, color: "from-blue-400 to-blue-600" },
-        { name: "AWS", level: 70, color: "from-yellow-500 to-yellow-700" },
-        { name: "Vercel", level: 85, color: "from-gray-400 to-gray-600" },
+        { name: "Git", level: 90, color: "from-orange-300 to-orange-500" },
+        { name: "Docker", level: 75, color: "from-cyan-300 to-blue-500" },
+        { name: "AWS", level: 70, color: "from-amber-300 to-amber-600" },
+        { name: "Vercel", level: 85, color: "from-slate-300 to-slate-500" },
       ],
     },
   ];
@@ -66,12 +61,9 @@ export default function AboutPage() {
       title: "Backend Developer",
       company: "Qurilo Private Limited",
       location: "Nawada New Delhi, Delhi, India",
-      period: "2025- Present",
-      description: `
-    Developing scalable web applications using Node.js, Express, and cloud technologies. 
-    Building RESTful APIs, optimizing performance, and mentoring junior developers 
-    while ensuring clean, maintainable code and seamless integration with frontend teams.
-  `,
+      period: "2025 - Present",
+      description:
+        "Developing scalable web applications using Node.js, Express, and cloud technologies while building RESTful APIs, improving performance, and collaborating closely with frontend teams.",
     },
     {
       type: "work",
@@ -80,9 +72,8 @@ export default function AboutPage() {
       location: "Remote",
       period: "2022 - 2024",
       description:
-        "Built and maintained multiple client projects using modern JavaScript frameworks. Collaborated with design teams to create pixel-perfect user interfaces.",
+        "Built and maintained multiple client projects using modern JavaScript frameworks, working across UI implementation and backend integrations.",
     },
-
     {
       type: "work",
       title: "Frontend Developer",
@@ -90,132 +81,96 @@ export default function AboutPage() {
       location: "Dwarka Mor New Delhi, India",
       period: "2021 - 2022",
       description:
-        "Started career developing responsive websites and learning full-stack development fundamentals.",
+        "Started my career by building responsive websites and learning the foundations of product-focused frontend development.",
     },
     {
       type: "education",
       title: "Bachelor of Computer Applications",
       company: "Delhi University",
-      location: "New Delhi,India",
+      location: "New Delhi, India",
       period: "2019 - 2022",
       description:
-        "Graduated Magna Cum Laude. Coursework focused on algorithms, data structures, and software engineering principles.",
+        "Built a strong foundation in programming, data structures, and software engineering principles during undergraduate study.",
     },
   ];
 
   return (
-    <div className="relative min-h-screen pt-20">
-      {/* Hero Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
+    <div className="relative pt-24">
+      <section className="section-wrap py-16 sm:py-20">
+        <div className="section-inner">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            transition={{ duration: 0.7 }}
+            className="grid gap-10 lg:grid-cols-[0.85fr,1.15fr] lg:items-center"
           >
-            <h1 className="text-4xl sm:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-              About Me
-            </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Passionate about creating digital experiences that make a
-              difference
-            </p>
-          </motion.div>
+            <div className="media-frame">
+              <img
+                src="https://res.cloudinary.com/dqwc7j44b/image/upload/v1777014525/ChatGPT_Image_Dec_26_2025_01_57_05_PM_qzwulh.png"
+                alt="Kush Bhardwaj portrait"
+                className="h-full min-h-[24rem] w-full object-cover"
+              />
+            </div>
 
-          {/* Bio Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 mb-16"
-          >
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
-              {/* Left Image */}
-              <div className="lg:col-span-1">
-                <div className="w-full h-full mx-auto rounded-2xl bg-gradient-to-br from-blue-400 to-purple-500">
-                  <div
-                    className="w-full h-full rounded-2xl bg-cover bg-center"
-                    style={{
-                      backgroundImage:
-                        "url(https://res.cloudinary.com/dqwc7j44b/image/upload/v1761132911/IMG20230806101921_svnvwv.jpg)",
-                    }}
-                  ></div>
+            <div className="space-y-6">
+              <span className="eyebrow">About me</span>
+              <h1 className="section-title max-w-3xl">
+                I build digital products where strong visual taste meets practical engineering.
+              </h1>
+              <p className="section-copy max-w-3xl">
+                I am a full-stack developer with 3+ years of experience crafting
+                products that feel modern, intuitive, and reliable. I enjoy turning
+                complex flows into clear user experiences and building systems that
+                stay maintainable as they grow.
+              </p>
+              <p className="section-copy max-w-3xl">
+                My work sits at the intersection of frontend polish and backend
+                logic, which means I care just as much about motion, hierarchy, and
+                conversion as I do about API design, performance, and scale.
+              </p>
+              <div className="grid gap-4 sm:grid-cols-3">
+                <div className="metric-tile">
+                  <p className="text-2xl font-bold">3+</p>
+                  <p className="mt-1 text-sm text-slate-400">Years experience</p>
+                </div>
+                <div className="metric-tile">
+                  <p className="text-2xl font-bold">Full stack</p>
+                  <p className="mt-1 text-sm text-slate-400">Frontend to backend</p>
+                </div>
+                <div className="metric-tile">
+                  <p className="text-2xl font-bold">Remote ready</p>
+                  <p className="mt-1 text-sm text-slate-400">Teams and clients</p>
                 </div>
               </div>
-
-              {/* Right Content */}
-              <div className="lg:col-span-2 flex flex-col justify-center">
-                <h2 className="text-2xl font-bold mb-4 text-white">
-                  Hello, I'm Kush!
-                </h2>
-                <div className="space-y-4 text-gray-300 leading-relaxed">
-                  <p>
-                    I'm a passionate full-stack developer with over 3+ years of
-                    experience crafting digital solutions that bridge the gap
-                    between complex technology and intuitive user experiences.
-                    My journey in tech began during my undergraduate studies at
-                    Delhi University, where I discovered my love for both the
-                    logical problem-solving of backend systems and the creative
-                    expression of frontend design.
-                  </p>
-                  <p>
-                    Throughout my career, I've had the privilege of working with
-                    startups and established companies alike, helping them build
-                    scalable applications that serve millions of users. I
-                    believe in writing clean, maintainable code and staying
-                    current with the latest technologies while maintaining a
-                    focus on performance and accessibility.
-                  </p>
-                  <p>
-                    When I'm not coding, you'll find me exploring new
-                    technologies, contributing to open-source projects, or
-                    sharing knowledge through technical writing and mentoring
-                    fellow developers.
-                  </p>
-                </div>
-                <div className="mt-6 flex flex-wrap gap-4">
-                  <a
-                    href="/contact"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg font-semibold text-white hover:scale-105 transition-all duration-300"
-                  >
-                    <ExternalLink size={18} />
-                    Get In Touch
-                  </a>
-                  {/* <a
-                    href="#"
-                    className="inline-flex items-center gap-2 px-6 py-3 border border-gray-600 rounded-lg font-semibold text-gray-300 hover:text-white hover:border-blue-400 transition-all duration-300"
-                  >
-                    <Download size={18} />
-                    Download Resume
-                  </a> */}
-                </div>
-              </div>
+              <Link to="/contact" className="btn-primary">
+                Get in touch
+                <ExternalLink size={18} />
+              </Link>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Skills Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
+      <section className="section-wrap py-16">
+        <div className="section-inner">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="mb-12 space-y-4"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-              Skills & Technologies
+            <span className="eyebrow">Capabilities</span>
+            <h2 className="section-title max-w-3xl">
+              A balanced toolkit across frontend, backend, data, and delivery.
             </h2>
-            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-              A comprehensive overview of my technical expertise and the tools I
-              use to bring ideas to life.
+            <p className="section-copy max-w-2xl">
+              I use the right stack for the product, but I care most about clarity,
+              maintainability, and the overall experience users feel.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             {skills.map((skillCategory, categoryIndex) => {
               const Icon = skillCategory.icon;
               return (
@@ -225,10 +180,12 @@ export default function AboutPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
-                  className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6"
+                  className="surface-card p-6"
                 >
-                  <div className="flex items-center gap-3 mb-6">
-                    <Icon className="text-blue-400" size={24} />
+                  <div className="mb-6 flex items-center gap-3">
+                    <div className="rounded-2xl border border-white/10 bg-white/5 p-3 text-[#76f0d6]">
+                      <Icon size={22} />
+                    </div>
                     <h3 className="text-xl font-semibold text-white">
                       {skillCategory.category}
                     </h3>
@@ -236,15 +193,11 @@ export default function AboutPage() {
                   <div className="space-y-4">
                     {skillCategory.technologies.map((tech, techIndex) => (
                       <div key={tech.name} className="space-y-2">
-                        <div className="flex justify-between items-center">
-                          <span className="text-gray-300 font-medium">
-                            {tech.name}
-                          </span>
-                          <span className="text-gray-400 text-sm">
-                            {tech.level}%
-                          </span>
+                        <div className="flex items-center justify-between">
+                          <span className="font-medium text-gray-300">{tech.name}</span>
+                          <span className="text-sm text-gray-400">{tech.level}%</span>
                         </div>
-                        <div className="w-full bg-gray-800 rounded-full h-2">
+                        <div className="h-2 w-full rounded-full bg-slate-800/80">
                           <motion.div
                             initial={{ width: 0 }}
                             whileInView={{ width: `${tech.level}%` }}
@@ -266,28 +219,27 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Timeline Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
+      <section className="section-wrap py-16 pb-24">
+        <div className="section-inner max-w-5xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="mb-12 space-y-4"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-              Experience & Education
+            <span className="eyebrow">Journey</span>
+            <h2 className="section-title max-w-3xl">
+              Experience and education that shaped how I build.
             </h2>
-            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-              My professional journey and educational background that shaped my
-              expertise.
+            <p className="section-copy max-w-2xl">
+              I have worked across backend, frontend, and full-stack roles, which
+              gives me a broader product perspective and a strong delivery mindset.
             </p>
           </motion.div>
 
           <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-4 md:left-1/2 md:transform md:-translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-400 to-purple-500" />
+            <div className="absolute bottom-0 left-4 top-0 w-px bg-gradient-to-b from-[#76f0d6] via-white/15 to-[#ff9b67] md:left-1/2 md:-translate-x-px" />
 
             {timeline.map((item, index) => (
               <motion.div
@@ -296,43 +248,31 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`relative flex items-center mb-12 ${
+                className={`relative mb-12 flex items-center ${
                   index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
               >
-                {/* Timeline Dot */}
-                <div className="absolute left-4 md:left-1/2 md:transform md:-translate-x-1/2 w-4 h-4 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full border-4 border-[#0A0A0F]" />
+                <div className="absolute left-4 h-4 w-4 rounded-full border-4 border-[#08111f] bg-gradient-to-r from-[#76f0d6] to-[#ff9b67] md:left-1/2 md:-translate-x-1/2" />
 
-                {/* Content */}
                 <div
                   className={`ml-12 md:ml-0 md:w-1/2 ${
                     index % 2 === 0 ? "md:pr-8" : "md:pl-8"
                   }`}
                 >
-                  <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6">
+                  <div className="surface-card p-6">
                     <div
-                      className={`flex items-center gap-2 mb-2 ${
-                        item.type === "work"
-                          ? "text-blue-400"
-                          : "text-purple-400"
+                      className={`mb-2 flex items-center gap-2 ${
+                        item.type === "work" ? "text-[#76f0d6]" : "text-[#ff9b67]"
                       }`}
                     >
-                      {item.type === "work" ? (
-                        <Code2 size={18} />
-                      ) : (
-                        <Calendar size={18} />
-                      )}
+                      {item.type === "work" ? <Code2 size={18} /> : <Calendar size={18} />}
                       <span className="text-sm font-medium uppercase tracking-wide">
                         {item.type}
                       </span>
                     </div>
-                    <h3 className="text-xl font-semibold text-white mb-1">
-                      {item.title}
-                    </h3>
-                    <div className="text-gray-300 font-medium mb-2">
-                      {item.company}
-                    </div>
-                    <div className="flex items-center gap-4 text-gray-400 text-sm mb-3">
+                    <h3 className="mb-1 text-xl font-semibold text-white">{item.title}</h3>
+                    <div className="mb-2 font-medium text-gray-300">{item.company}</div>
+                    <div className="mb-3 flex flex-wrap items-center gap-4 text-sm text-gray-400">
                       <span className="flex items-center gap-1">
                         <MapPin size={14} />
                         {item.location}
@@ -342,9 +282,7 @@ export default function AboutPage() {
                         {item.period}
                       </span>
                     </div>
-                    <p className="text-gray-300 leading-relaxed">
-                      {item.description}
-                    </p>
+                    <p className="leading-relaxed text-gray-300">{item.description}</p>
                   </div>
                 </div>
               </motion.div>

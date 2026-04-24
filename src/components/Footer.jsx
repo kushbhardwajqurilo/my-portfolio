@@ -1,5 +1,6 @@
-import { Github, Linkedin, Instagram, Heart } from "lucide-react";
+import { Github, Linkedin, Instagram, Mail, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   const socialLinks = [
@@ -21,98 +22,91 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative mt-20 border-t border-white/10">
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0F] to-transparent" />
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="flex flex-col items-center space-y-6">
-          {/* Logo */}
+    <footer className="relative z-10 mt-24 border-t border-white/10">
+      <div className="section-wrap py-10 sm:py-14">
+        <div className="section-inner">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
+            className="surface-card-strong px-6 py-10 sm:px-10"
           >
-            Kush Bhardwaj
-          </motion.div>
+            <div className="grid gap-10 lg:grid-cols-[1.2fr,0.8fr,0.9fr]">
+              <div className="space-y-4">
+                <span className="eyebrow">Open for select freelance work</span>
+                <h2 className="text-3xl font-bold text-white">
+                  Designing sharp digital products with strong frontend craft.
+                </h2>
+                <p className="max-w-xl text-base leading-8 text-slate-300">
+                  I build modern interfaces that feel premium, perform well, and
+                  convert attention into action.
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  {socialLinks.map((link) => {
+                    const Icon = link.icon;
+                    return (
+                      <a
+                        key={link.name}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-slate-200 hover:bg-white/10"
+                      >
+                        <Icon size={16} />
+                        {link.name}
+                      </a>
+                    );
+                  })}
+                </div>
+              </div>
 
-          {/* Social Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="flex space-x-6"
-          >
-            {socialLinks.map((link) => {
-              const Icon = link.icon;
-              return (
+              <div>
+                <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-slate-400">
+                  Explore
+                </p>
+                <div className="grid gap-3 text-sm text-slate-300">
+                  <Link to="/" className="hover:text-white">
+                    Home
+                  </Link>
+                  <Link to="/about" className="hover:text-white">
+                    About
+                  </Link>
+                  <Link to="/projects" className="hover:text-white">
+                    Projects
+                  </Link>
+                  <Link to="/contact" className="hover:text-white">
+                    Contact
+                  </Link>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-400">
+                  Contact
+                </p>
                 <a
-                  key={link.name}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-colors duration-200 p-2 rounded-full hover:bg-white/10"
-                  aria-label={link.name}
+                  href="mailto:kushbhardwaj8800@gmail.com"
+                  className="flex items-center gap-3 text-slate-200 hover:text-white"
                 >
-                  <Icon size={20} />
+                  <Mail size={16} className="text-[#76f0d6]" />
+                  kushbhardwaj8800@gmail.com
                 </a>
-              );
-            })}
-          </motion.div>
+                <div className="flex items-center gap-3 text-slate-300">
+                  <MapPin size={16} className="text-[#ff9b67]" />
+                  New Delhi, India
+                </div>
+                <Link to="/contact" className="btn-secondary mt-2">
+                  Book a conversation
+                </Link>
+              </div>
+            </div>
 
-          {/* Quick Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="flex flex-wrap justify-center gap-6 text-sm text-gray-400"
-          >
-            <a
-              href="/"
-              className="hover:text-white transition-colors duration-200"
-            >
-              Home
-            </a>
-            <a
-              href="/about"
-              className="hover:text-white transition-colors duration-200"
-            >
-              About
-            </a>
-            <a
-              href="/projects"
-              className="hover:text-white transition-colors duration-200"
-            >
-              Projects
-            </a>
-            {/* <a
-              href="/blog"
-              className="hover:text-white transition-colors duration-200"
-            >
-              Blog
-            </a> */}
-            <a
-              href="/contact"
-              className="hover:text-white transition-colors duration-200"
-            >
-              Contact
-            </a>
-          </motion.div>
+            <div className="accent-line my-8" />
 
-          {/* Copyright */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="text-center text-gray-500 text-sm"
-          >
-            <p className="flex items-center justify-center gap-1">
-              © {new Date().getFullYear()} All rights reserved.
-            </p>
-            <p className="mt-1"></p>
+            <div className="flex flex-col gap-3 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between">
+              <p>Copyright {new Date().getFullYear()} Kush Bhardwaj. All rights reserved.</p>
+              <p>Built with React, motion, and a lot of attention to detail.</p>
+            </div>
           </motion.div>
         </div>
       </div>

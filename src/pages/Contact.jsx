@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
@@ -33,13 +31,11 @@ export default function ContactPage() {
     setSubmitStatus(null);
 
     try {
-      // Send data to your backend API
       const res = await axios.post(
         "https://portfolio-backend-nine-ochre-99.vercel.app/visitor/visitor-message",
         data
       );
-      console.log("data", data);
-      console.log("res", res);
+
       if (res.status === 200) {
         setSubmitStatus("success");
         reset();
@@ -86,43 +82,42 @@ export default function ContactPage() {
       name: "LinkedIn",
       href: "https://www.linkedin.com/in/kushbhardwajdev05",
       icon: Linkedin,
-      color: "hover:text-blue-400",
+      color: "hover:text-cyan-300",
     },
     {
       name: "Instagram",
       href: "https://instagram.com/kush_bhardwaj_05",
       icon: Instagram,
-      color: "hover:text-pink-400",
+      color: "hover:text-orange-300",
     },
   ];
 
   return (
-    <div className="relative min-h-screen pt-20">
-      {/* Hero Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+    <div className="relative pt-24">
+      <section className="section-wrap py-16 sm:py-20">
+        <div className="section-inner">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            transition={{ duration: 0.75 }}
+            className="space-y-6"
           >
-            <h1 className="text-4xl sm:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-              Get In Touch
+            <span className="eyebrow">Contact</span>
+            <h1 className="section-title max-w-4xl">
+              Have a project in mind? Let&apos;s shape something memorable.
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Have a project in mind or want to collaborate? I'd love to hear
-              from you. Let's create something amazing together.
+            <p className="section-copy max-w-3xl">
+              Whether you need a portfolio-quality landing page, a polished product
+              UI, or a full-stack implementation, I&apos;m open to thoughtful
+              collaborations.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Information */}
+      <section className="section-wrap pb-24">
+        <div className="section-inner">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -130,52 +125,42 @@ export default function ContactPage() {
               transition={{ duration: 0.8 }}
               className="space-y-8"
             >
-              <div>
-                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-                  Let's Connect
-                </h2>
-                <p className="text-lg text-gray-300 leading-relaxed mb-8">
-                  Whether you have a question about my work, want to discuss a
-                  potential project, or just want to say hello, I'm always open
-                  to connecting with fellow developers and entrepreneurs.
+              <div className="surface-card-strong p-8">
+                <h2 className="text-3xl font-bold text-white">Let&apos;s connect</h2>
+                <p className="mt-4 text-base leading-8 text-slate-300">
+                  I enjoy working with founders, teams, and businesses that care
+                  about great product presentation, clear UX, and reliable delivery.
                 </p>
+                <div className="mt-8 grid gap-4">
+                  {contactInfo.map((info, index) => {
+                    const Icon = info.icon;
+                    return (
+                      <motion.a
+                        key={info.label}
+                        href={info.href}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        className="group flex items-center gap-4 rounded-3xl border border-white/10 bg-white/5 p-4 transition-all duration-300 hover:bg-white/10"
+                      >
+                        <div className="rounded-2xl border border-white/10 bg-white/10 p-3 text-[#76f0d6] group-hover:scale-110">
+                          <Icon size={20} className="text-white" />
+                        </div>
+                        <div>
+                          <h3 className="mb-1 font-semibold text-white">{info.label}</h3>
+                          <p className="text-gray-400 transition-colors group-hover:text-gray-300">
+                            {info.value}
+                          </p>
+                        </div>
+                      </motion.a>
+                    );
+                  })}
+                </div>
               </div>
 
-              {/* Contact Info */}
-              <div className="space-y-6">
-                {contactInfo.map((info, index) => {
-                  const Icon = info.icon;
-                  return (
-                    <motion.a
-                      key={info.label}
-                      href={info.href}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="flex items-center gap-4 p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl hover:bg-white/10 transition-all duration-300 group"
-                    >
-                      <div className="p-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg group-hover:scale-110 transition-transform">
-                        <Icon size={20} className="text-white" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-white mb-1">
-                          {info.label}
-                        </h3>
-                        <p className="text-gray-400 group-hover:text-gray-300 transition-colors">
-                          {info.value}
-                        </p>
-                      </div>
-                    </motion.a>
-                  );
-                })}
-              </div>
-
-              {/* Social Links */}
-              <div>
-                <h3 className="text-xl font-semibold mb-4 text-white">
-                  Follow Me
-                </h3>
+              <div className="surface-card p-8">
+                <h3 className="mb-4 text-xl font-semibold text-white">Follow me</h3>
                 <div className="flex space-x-4">
                   {socialLinks.map((social) => {
                     const Icon = social.icon;
@@ -187,7 +172,7 @@ export default function ContactPage() {
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
-                        className={`p-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-gray-400 ${social.color} transition-all duration-300 hover:bg-white/10 hover:border-white/20`}
+                        className={`rounded-full border border-white/10 bg-white/5 p-3 text-gray-400 ${social.color} transition-all duration-300 hover:border-white/20 hover:bg-white/10`}
                         aria-label={social.name}
                       >
                         <Icon size={20} />
@@ -197,66 +182,54 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Quick Response */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 backdrop-blur-sm border border-white/10 rounded-xl p-6"
+                className="surface-card p-6"
               >
-                <div className="flex items-center gap-3 mb-3">
-                  <MessageCircle className="text-blue-400" size={24} />
-                  <h3 className="text-lg font-semibold text-white">
-                    Quick Response
-                  </h3>
+                <div className="mb-3 flex items-center gap-3">
+                  <MessageCircle className="text-[#ff9b67]" size={24} />
+                  <h3 className="text-lg font-semibold text-white">Quick Response</h3>
                 </div>
-                <p className="text-gray-300">
+                <p className="text-slate-300">
                   I typically respond within 24 hours. For urgent inquiries,
                   reach out via phone or LinkedIn.
                 </p>
               </motion.div>
             </motion.div>
 
-            {/* Contact Form */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8"
+              className="surface-card-strong p-8"
             >
-              <h2 className="text-2xl font-bold mb-6 text-white">
-                Send Message
-              </h2>
+              <h2 className="mb-6 text-2xl font-bold text-white">Send Message</h2>
 
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                {/* Name */}
                 <div>
-                  <label className="block text-sm text-gray-300 mb-2">
-                    Full Name *
-                  </label>
+                  <label className="mb-2 block text-sm text-gray-300">Full Name *</label>
                   <input
                     type="text"
                     {...register("name", {
                       required: "Name is required",
                       minLength: { value: 2, message: "Min 2 characters" },
                     })}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white"
+                    className="field"
                     placeholder="Your full name"
                   />
                   {errors.name && (
-                    <p className="mt-1 text-sm text-red-400 flex items-center gap-1">
+                    <p className="mt-1 flex items-center gap-1 text-sm text-red-400">
                       <AlertCircle size={14} /> {errors.name.message}
                     </p>
                   )}
                 </div>
 
-                {/* Email */}
                 <div>
-                  <label className="block text-sm text-gray-300 mb-2">
-                    Email Address *
-                  </label>
+                  <label className="mb-2 block text-sm text-gray-300">Email Address *</label>
                   <input
                     type="email"
                     {...register("email", {
@@ -266,34 +239,28 @@ export default function ContactPage() {
                         message: "Invalid email",
                       },
                     })}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white"
+                    className="field"
                     placeholder="your@email.com"
                   />
                   {errors.email && (
-                    <p className="mt-1 text-sm text-red-400 flex items-center gap-1">
+                    <p className="mt-1 flex items-center gap-1 text-sm text-red-400">
                       <AlertCircle size={14} /> {errors.email.message}
                     </p>
                   )}
                 </div>
 
-                {/* Subject */}
                 <div>
-                  <label className="block text-sm text-gray-300 mb-2">
-                    Subject
-                  </label>
+                  <label className="mb-2 block text-sm text-gray-300">Subject</label>
                   <input
                     type="text"
                     {...register("subject")}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white"
-                    placeholder="What's this about?"
+                    className="field"
+                    placeholder="What is this about?"
                   />
                 </div>
 
-                {/* Message */}
                 <div>
-                  <label className="block text-sm text-gray-300 mb-2">
-                    Message *
-                  </label>
+                  <label className="mb-2 block text-sm text-gray-300">Message *</label>
                   <textarea
                     rows={5}
                     {...register("message", {
@@ -303,36 +270,34 @@ export default function ContactPage() {
                         message: "At least 10 characters",
                       },
                     })}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white resize-none"
-                    placeholder="Tell me about your project or just say hello!"
+                    className="field resize-none"
+                    placeholder="Tell me about your project or just say hello."
                   />
                   {errors.message && (
-                    <p className="mt-1 text-sm text-red-400 flex items-center gap-1">
+                    <p className="mt-1 flex items-center gap-1 text-sm text-red-400">
                       <AlertCircle size={14} /> {errors.message.message}
                     </p>
                   )}
                 </div>
 
-                {/* Submit */}
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg font-semibold text-white hover:from-blue-600 hover:to-purple-700 transition-all duration-300 disabled:opacity-50"
+                  className="btn-primary w-full disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {isSubmitting ? (
-                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                    <div className="h-5 w-5 animate-spin rounded-full border-2 border-white border-t-transparent" />
                   ) : (
                     <Send size={18} />
                   )}
                   {isSubmitting ? "Sending..." : "Send Message"}
                 </button>
 
-                {/* Status */}
                 {submitStatus === "success" && (
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="p-4 bg-green-500/20 border border-green-500/30 rounded-lg text-green-300 flex items-center gap-2"
+                    className="flex items-center gap-2 rounded-2xl border border-green-400/20 bg-green-400/10 p-4 text-green-200"
                   >
                     <CheckCircle size={20} /> Message sent successfully!
                   </motion.div>
@@ -342,7 +307,7 @@ export default function ContactPage() {
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="p-4 bg-red-500/20 border border-red-500/30 rounded-lg text-red-300 flex items-center gap-2"
+                    className="flex items-center gap-2 rounded-2xl border border-red-400/20 bg-red-400/10 p-4 text-red-200"
                   >
                     <AlertCircle size={20} /> Something went wrong. Try again.
                   </motion.div>

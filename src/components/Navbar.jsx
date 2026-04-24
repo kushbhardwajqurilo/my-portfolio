@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
-// Custom Logo Component
+import { Link, NavLink } from "react-router-dom";
+
 function CustomLogo() {
   return (
     <div className="flex items-center space-x-2">
@@ -14,9 +15,9 @@ function CustomLogo() {
       >
         <defs>
           <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#3b82f6" />
-            <stop offset="50%" stopColor="#8b5cf6" />
-            <stop offset="100%" stopColor="#ec4899" />
+            <stop offset="0%" stopColor="#76f0d6" />
+            <stop offset="50%" stopColor="#49d3ba" />
+            <stop offset="100%" stopColor="#ff9b67" />
           </linearGradient>
           <filter id="glow">
             <feGaussianBlur stdDeviation="2" result="coloredBlur" />
@@ -26,8 +27,6 @@ function CustomLogo() {
             </feMerge>
           </filter>
         </defs>
-
-        {/* Outer hexagon */}
         <polygon
           points="20,2 32,10 32,30 20,38 8,30 8,10"
           fill="none"
@@ -35,8 +34,6 @@ function CustomLogo() {
           strokeWidth="1.5"
           filter="url(#glow)"
         />
-
-        {/* Inner geometric K shape */}
         <path
           d="M12 12 L12 28 M12 20 L24 12 M12 20 L24 28"
           stroke="url(#logoGradient)"
@@ -46,35 +43,12 @@ function CustomLogo() {
           fill="none"
           filter="url(#glow)"
         />
-
-        {/* Dot accent */}
-        <circle
-          cx="28"
-          cy="20"
-          r="2"
-          fill="url(#logoGradient)"
-          filter="url(#glow)"
-        />
-
-        {/* Small geometric accents */}
-        <rect
-          x="25"
-          y="25"
-          width="3"
-          height="3"
-          fill="url(#logoGradient)"
-          opacity="0.6"
-          transform="rotate(45 26.5 26.5)"
-        />
+        <circle cx="28" cy="20" r="2" fill="url(#logoGradient)" filter="url(#glow)" />
       </svg>
 
       <div className="flex flex-col">
-        <span className="text-lg font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent">
-          Kush
-        </span>
-        <span className="text-xs text-gray-400 -mt-1 tracking-wide">
-          Developer
-        </span>
+        <span className="text-lg font-bold text-white">Kush</span>
+        <span className="text-xs tracking-[0.22em] text-slate-400">Developer</span>
       </div>
     </div>
   );
@@ -100,47 +74,47 @@ export default function Navigation() {
     { name: "Contact", href: "/contact" },
   ];
 
+  const navLinkClass = ({ isActive }) =>
+    `rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 ${
+      isActive
+        ? "border border-white/10 bg-white/10 text-white shadow-[0_10px_30px_rgba(0,0,0,0.15)]"
+        : "text-slate-300 hover:bg-white/5 hover:text-white"
+    }`;
+
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "backdrop-blur-md bg-[#0A0A0F]/80 border-b border-white/10"
+          ? "border-b border-white/10 bg-[#08111f]/70 backdrop-blur-xl"
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <motion.a
-            href="/"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="flex items-center"
-          >
-            <CustomLogo />
-          </motion.a>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-20 items-center justify-between">
+          <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
+            <Link to="/" className="flex items-center">
+              <CustomLogo />
+            </Link>
+          </motion.div>
 
-          {/* Desktop Navigation - rest remains the same */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+          <div className="hidden items-center gap-3 rounded-full border border-white/10 bg-white/5 px-3 py-2 backdrop-blur-xl md:flex">
+            <div className="flex items-baseline gap-1">
               {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors duration-200 relative group"
-                >
+                <NavLink key={item.name} to={item.href} className={navLinkClass}>
                   {item.name}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-500 group-hover:w-full transition-all duration-300" />
-                </a>
+                </NavLink>
               ))}
             </div>
+            <Link to="/contact" className="btn-primary px-5 py-2.5 text-sm">
+              Start a project
+            </Link>
           </div>
 
-          {/* Mobile menu button - rest remains the same */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-300 hover:text-white focus:outline-none focus:text-white"
+              className="rounded-full border border-white/10 bg-white/5 p-2.5 text-slate-200 hover:bg-white/10"
+              aria-label="Toggle menu"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -148,25 +122,35 @@ export default function Navigation() {
         </div>
       </div>
 
-      {/* Mobile Navigation - rest remains the same */}
       <motion.div
         initial={false}
-        animate={
-          isOpen ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }
-        }
-        className="md:hidden overflow-hidden backdrop-blur-md bg-[#0A0A0F]/90 border-b border-white/10"
+        animate={isOpen ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
+        className="overflow-hidden border-b border-white/10 bg-[#08111f]/90 backdrop-blur-xl md:hidden"
       >
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <div className="space-y-2 px-4 pb-5 pt-2">
           {navItems.map((item) => (
-            <a
+            <NavLink
               key={item.name}
-              href={item.href}
-              className="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium transition-colors duration-200"
+              to={item.href}
+              className={({ isActive }) =>
+                `block rounded-2xl px-4 py-3 text-base font-medium ${
+                  isActive
+                    ? "border border-white/10 bg-white/10 text-white"
+                    : "text-slate-300 hover:bg-white/5 hover:text-white"
+                }`
+              }
               onClick={() => setIsOpen(false)}
             >
               {item.name}
-            </a>
+            </NavLink>
           ))}
+          <Link
+            to="/contact"
+            className="btn-primary mt-2 w-full"
+            onClick={() => setIsOpen(false)}
+          >
+            Start a project
+          </Link>
         </div>
       </motion.div>
     </nav>
