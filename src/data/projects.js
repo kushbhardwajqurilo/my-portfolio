@@ -99,11 +99,11 @@ export const projects = [
     links: [
       {
         label: "Android",
-        url: "https://play.google.com/store/apps/details?id=your.app.id",
+        url: "https://play.google.com/store/apps/details?id=com.deveshqurilo.dri",
       },
       {
         label: "iOS",
-        url: "https://apps.apple.com/app/id1234567890",
+        url: "https://apps.apple.com/in/app/debt-relief-india/id6757096139",
       },
     ],
     metrics: [
