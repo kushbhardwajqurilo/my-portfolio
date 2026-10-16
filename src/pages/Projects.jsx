@@ -7,7 +7,10 @@ import { projects } from "../data/projects";
 export default function ProjectsPage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  const categories = ["All", ...new Set(projects.map((project) => project.category))];
+  const categories = [
+    "All",
+    ...new Set(projects.map((project) => project.category)),
+  ];
   const getPrimaryProjectLink = (project) =>
     project.links?.[0]?.url || project.github || "#";
 
@@ -28,7 +31,8 @@ export default function ProjectsPage() {
           >
             <span className="eyebrow">Project library</span>
             <h1 className="section-title max-w-4xl">
-              A curated set of builds across web products, mobile experiences, and brand-led interfaces.
+              A curated set of builds across web products, mobile experiences,
+              and brand-led interfaces.
             </h1>
             <p className="section-copy max-w-3xl">
               These are selected projects where I focused on usability, visual
@@ -73,7 +77,8 @@ export default function ProjectsPage() {
               >
                 <span className="eyebrow">Featured projects</span>
                 <h2 className="section-title max-w-3xl">
-                  The strongest examples of how I approach product design and development.
+                  The strongest examples of how I approach product design and
+                  development.
                 </h2>
               </motion.div>
 
@@ -100,13 +105,18 @@ export default function ProjectsPage() {
                           <div className="flex flex-wrap items-center gap-3">
                             <span className="pill">{project.category}</span>
                             {project.metrics.map((metric) => (
-                              <span key={metric.label} className="text-xs uppercase tracking-[0.22em] text-slate-500">
+                              <span
+                                key={metric.label}
+                                className="text-xs uppercase tracking-[0.22em] text-slate-500"
+                              >
                                 {metric.label}: {metric.value}
                               </span>
                             ))}
                           </div>
                           <div>
-                            <h3 className="text-3xl font-bold text-white">{project.title}</h3>
+                            <h3 className="text-3xl font-bold text-white">
+                              {project.title}
+                            </h3>
                             <p className="mt-4 text-base leading-8 text-slate-300">
                               {project.longDescription}
                             </p>
@@ -155,7 +165,10 @@ export default function ProjectsPage() {
                                 Code
                               </a>
                             )}
-                            <Link to={`/projects/${project.slug}`} className="btn-secondary px-5 py-3 text-sm">
+                            <Link
+                              to={`/projects/${project.slug}`}
+                              className="btn-secondary px-5 py-3 text-sm"
+                            >
                               View case study
                               <ArrowRight size={16} />
                             </Link>
@@ -220,7 +233,9 @@ export default function ProjectsPage() {
                   </div>
 
                   <div>
-                    <h3 className="text-2xl font-bold text-white">{project.title}</h3>
+                    <h3 className="text-2xl font-bold text-white">
+                      {project.title}
+                    </h3>
                     <p className="mt-3 line-clamp-3 text-sm leading-7 text-slate-400">
                       {project.description}
                     </p>
@@ -246,7 +261,10 @@ export default function ProjectsPage() {
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <Link to={`/projects/${project.slug}`} className="btn-ghost">
+                    <Link
+                      to={`/projects/${project.slug}`}
+                      className="btn-ghost"
+                    >
                       Open case study
                       <ArrowRight size={16} />
                     </Link>
@@ -273,8 +291,12 @@ export default function ProjectsPage() {
               animate={{ opacity: 1 }}
               className="surface-card mt-10 py-16 text-center"
             >
-              <h3 className="text-2xl font-bold text-white">No projects found</h3>
-              <p className="mt-3 text-slate-400">Try switching to another category.</p>
+              <h3 className="text-2xl font-bold text-white">
+                No projects found
+              </h3>
+              <p className="mt-3 text-slate-400">
+                Try switching to another category.
+              </p>
             </motion.div>
           )}
         </div>

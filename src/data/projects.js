@@ -56,16 +56,25 @@ export const projects = [
     category: "Web Apps",
     featured: true,
     image:
-      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1761130563/bs_z8ue9v.png",
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1792133322/Screenshot_2026-10-16_121834_qg1aui.png",
     description:
       "A premium wholesale cosmetics website focused on product clarity, trust, and a polished buying experience for business customers.",
     longDescription:
       "Barber Syndicate presents wholesale cosmetics and beauty products in a clean, conversion-focused layout. The site is designed to help buyers understand the catalog quickly, evaluate product quality, and move toward inquiry or purchase with confidence.",
-    tech: ["React", "Node.js", "MongoDB", "Cloudinary"],
+    tech: [
+      "React",
+      "Node.js",
+      "MongoDB",
+      "Cloudinary",
+      "Vps hosting",
+      "ci/cd",
+      "whatsapp intregation",
+      "lucide-react",
+    ],
     links: [
       {
         label: "Visit Website",
-        url: "https://git-branch-m-main.vercel.app/",
+        url: "https://3846.in/",
       },
     ],
     metrics: [
@@ -90,7 +99,7 @@ export const projects = [
     category: "Mobile Apps",
     featured: true,
     image:
-      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1777015885/resumegen_kqzbtv.png",
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1792133209/Screenshot_2026-10-16_121628_qjcjsa.png",
     description:
       "A mobile-first debt support product with interactive calculators, better onboarding flows, and smoother input handling.",
     longDescription:
@@ -122,7 +131,7 @@ export const projects = [
       "The updated flows improve comprehension, reduce friction in data entry, and help users reach meaningful debt insights faster.",
   },
   {
-    id: 3,
+    id: 4,
     title: "Debt Relief India Admin Panel",
     slug: slugifyTitle("Barber Syndicate"),
     category: "Web Apps",
@@ -137,7 +146,7 @@ export const projects = [
     links: [
       {
         label: "Visit Website",
-        url: "https://app.debtreliefindia.com",
+        url: "https://apps.debtreliefindia.com",
       },
     ],
     metrics: [
@@ -154,6 +163,83 @@ export const projects = [
       "The main goal was to make a wholesale catalog feel premium and easy to scan without overwhelming business buyers.",
     impact:
       "The site gives the brand a stronger digital storefront and makes product discovery easier for wholesale inquiries.",
+  },
+  {
+    id: 5,
+    title: "Shuddhveda Honey",
+    slug: slugifyTitle("Shuddhveda Honey"),
+    category: "Web Apps",
+    featured: true,
+    image:
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1792131017/Screenshot_2026-10-16_114007_zx4npa.png",
+    description:
+      "From ethical honey harvesting to eco-conscious glass packaging, discover how we deliver raw & natural honey to your family.",
+    longDescription:
+      "At ShuddhaVeda, we believe honey is more than a sweetener—it's a gift from nature, crafted by hardworking bees and preserved with uncompromising care and respect.",
+    tech: [
+      "Next.js",
+      "Node.js",
+      "MongoDB",
+      "Razorpay",
+      "Redis",
+      "BullMQ",
+      "Cloudinary",
+      "CI/CD",
+      "Velocity Delivery Partner",
+      "Bravo Email Service",
+      "Namecheap VPS",
+    ],
+    links: [
+      {
+        label: "Visit Website",
+        url: "https://shuddhvedahoney.com",
+      },
+    ],
+    metrics: [
+      { label: "Experience", value: "Immersive" },
+      { label: "Payments", value: "Razorpay" },
+      { label: "Stack", value: "Backend Developer" },
+    ],
+    highlights: [
+      "Full-Stack Architecture: Built using Next.js and Node.js backed by MongoDB and Redis for high performance and reliable background job processing via BullMQ.",
+      "Seamless Payment Integration: Integrated secure checkout workflows using Razorpay for smooth transactions.",
+      "Balanced energetic branding with clear conversion-focused UI.",
+    ],
+    challenge: `Capturing a "devotional, exciting, and credible" brand identity inspired by pure, ethical beekeeping while ensuring the user journey from product discovery to checkout remained entirely friction-free.`,
+    impact:
+      "Delivered a polished, professional shopping experience that builds customer trust and converts visitor attention into action.",
+  },
+  {
+    id: 6,
+    title: "Corevex Steel Wires",
+    slug: slugifyTitle("Corevex Steel Wires"),
+    category: "Web Apps",
+    featured: true,
+    image:
+      "https://res.cloudinary.com/dqwc7j44b/image/upload/v1792133582/Screenshot_2026-10-16_122247_tjclhg.png",
+    description:
+      "Purpose-built fencing and barrier systems shaped around site risk, operating conditions, and the realities of project delivery.",
+    longDescription:
+      "Corvex Steel Wires develops steel wire, fencing, and perimeter systems through disciplined engineering, controlled production, and practical project thinking.",
+    tech: ["Next.js", "Lucid-icons", "tailwind"],
+    links: [
+      {
+        label: "Visit Website",
+        url: "https://corvexsteelwires.com",
+      },
+    ],
+    metrics: [
+      { label: "Experience", value: "Immersive" },
+      { label: "Stack", value: "Full Stack" },
+    ],
+    highlights: [
+      "A straightforward framework keeps technical intent visible from the first conversation through delivery support.",
+      "Map the boundary, environment, interfaces, risk profile, and delivery constraints before selecting a configuration.",
+      "Balanced energetic branding with clear conversion-focused UI.",
+    ],
+    challenge: `A straightforward framework keeps technical intent visible from the first conversation through delivery support.`,
+    impact:
+      "Delivered a polished, professional shopping experience that builds customer trust and converts visitor attention into action.",
   },
 ];
 
