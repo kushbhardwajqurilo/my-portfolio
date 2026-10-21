@@ -125,7 +125,7 @@ export default function HomePage() {
 
                 <div className="media-frame ">
                   <img
-                    src="https://res.cloudinary.com/dqwc7j44b/image/upload/v1777014525/ChatGPT_Image_Dec_26_2025_01_57_05_PM_qzwulh.png"
+                    src="https://res.cloudinary.com/dmnsqt8nx/image/upload/v1792581574/Casual_Office_Portrait_with_Laptop_and_Plant_znodo4.png"
                     alt="Kush Bhardwaj portrait"
                     className="h-[26rem] w-sm object-cover"
                   />

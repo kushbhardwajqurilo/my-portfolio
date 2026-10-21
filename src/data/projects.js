@@ -108,7 +108,7 @@ export const projects = [
     links: [
       {
         label: "Android",
-        url: "https://play.google.com/store/apps/details?id=com.deveshqurilo.dri",
+        url: "https://play.google.com/store/apps/details?id=com.debtreliefindia.android&pcampaignid=web_share",
       },
       {
         label: "iOS",

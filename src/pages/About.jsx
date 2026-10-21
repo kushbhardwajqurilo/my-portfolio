@@ -43,7 +43,8 @@ export default function AboutPage() {
     {
       category: "Frontend Architecture",
       icon: Globe,
-      description: "Modern, reactive, and responsive interfaces with smooth micro-interactions.",
+      description:
+        "Modern, reactive, and responsive interfaces with smooth micro-interactions.",
       accent: "from-cyan-500/20 via-sky-500/10 to-transparent",
       borderColor: "hover:border-cyan-500/40",
       technologies: [
@@ -80,7 +81,8 @@ export default function AboutPage() {
     {
       category: "Backend & Systems",
       icon: Server,
-      description: "High-throughput APIs, authentication, background workers, and business logic.",
+      description:
+        "High-throughput APIs, authentication, background workers, and business logic.",
       accent: "from-emerald-500/20 via-teal-500/10 to-transparent",
       borderColor: "hover:border-emerald-500/40",
       technologies: [
@@ -117,7 +119,8 @@ export default function AboutPage() {
     {
       category: "Databases & Storage",
       icon: Database,
-      description: "Data modeling, relational indexing, schema migrations, and NoSQL clusters.",
+      description:
+        "Data modeling, relational indexing, schema migrations, and NoSQL clusters.",
       accent: "from-purple-500/20 via-indigo-500/10 to-transparent",
       borderColor: "hover:border-purple-500/40",
       technologies: [
@@ -154,7 +157,8 @@ export default function AboutPage() {
     {
       category: "DevOps, Cloud & Tools",
       icon: GitBranch,
-      description: "Continuous integration, containerized deployments, cloud hosting, and automation.",
+      description:
+        "Continuous integration, containerized deployments, cloud hosting, and automation.",
       accent: "from-amber-500/20 via-rose-500/10 to-transparent",
       borderColor: "hover:border-amber-500/40",
       technologies: [
@@ -218,7 +222,13 @@ export default function AboutPage() {
         "Architected scalable RESTful microservices and secure auth layers.",
         "Optimized query response times and system database throughput.",
       ],
-      skills: ["Node.js", "Express.js", "Cloud APIs", "System Design", "MongoDB"],
+      skills: [
+        "Node.js",
+        "Express.js",
+        "Cloud APIs",
+        "System Design",
+        "MongoDB",
+      ],
     },
     {
       current: false,
@@ -259,8 +269,14 @@ export default function AboutPage() {
       location: "New Delhi, India",
       period: "2019 - 2022",
       score: "Graduated with Honors",
-      focus: "Core Computer Science, Data Structures, Algorithms, Relational DBs, and Web Development.",
-      coursework: ["Data Structures", "Algorithms", "Database Management", "Software Eng."],
+      focus:
+        "Core Computer Science, Data Structures, Algorithms, Relational DBs, and Web Development.",
+      coursework: [
+        "Data Structures",
+        "Algorithms",
+        "Database Management",
+        "Software Eng.",
+      ],
     },
   ];
 
@@ -297,7 +313,7 @@ export default function AboutPage() {
           >
             <div className="media-frame">
               <img
-                src="https://res.cloudinary.com/dqwc7j44b/image/upload/v1777014525/ChatGPT_Image_Dec_26_2025_01_57_05_PM_qzwulh.png"
+                src="https://res.cloudinary.com/dmnsqt8nx/image/upload/v1792581574/Casual_Office_Portrait_with_Laptop_and_Plant_znodo4.png"
                 alt="Kush Bhardwaj portrait"
                 className="h-full min-h-[24rem] w-full object-cover"
               />
@@ -449,7 +465,8 @@ export default function AboutPage() {
               Experience & education that shaped my engineering mindset.
             </h2>
             <p className="section-copy max-w-2xl">
-              A dual overview of hands-on production engineering in startups and agencies alongside formal computer science foundations.
+              A dual overview of hands-on production engineering in startups and
+              agencies alongside formal computer science foundations.
             </p>
           </motion.div>
 
@@ -462,7 +479,9 @@ export default function AboutPage() {
                   <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-cyan-500/20 bg-cyan-500/10 text-[#76f0d6]">
                     <Briefcase size={18} />
                   </div>
-                  <h3 className="text-xl font-bold text-white">Work Experience</h3>
+                  <h3 className="text-xl font-bold text-white">
+                    Work Experience
+                  </h3>
                 </div>
                 <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
                   3 Positions
@@ -477,10 +496,11 @@ export default function AboutPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: idx * 0.1 }}
-                    className={`group relative overflow-hidden rounded-3xl border p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl ${job.current
-                      ? "border-[#76f0d6]/40 bg-gradient-to-br from-[#76f0d6]/[0.08] via-slate-900/60 to-slate-900/40 hover:border-[#76f0d6]/60 shadow-lg shadow-[#76f0d6]/5"
-                      : "border-white/10 bg-slate-900/50 hover:border-white/20 hover:bg-slate-900/80"
-                      }`}
+                    className={`group relative overflow-hidden rounded-3xl border p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl ${
+                      job.current
+                        ? "border-[#76f0d6]/40 bg-gradient-to-br from-[#76f0d6]/[0.08] via-slate-900/60 to-slate-900/40 hover:border-[#76f0d6]/60 shadow-lg shadow-[#76f0d6]/5"
+                        : "border-white/10 bg-slate-900/50 hover:border-white/20 hover:bg-slate-900/80"
+                    }`}
                   >
                     {/* Ambient glow for current role */}
                     {job.current && (
@@ -525,8 +545,14 @@ export default function AboutPage() {
                     {/* Bullet Highlights */}
                     <div className="relative mb-4 space-y-1.5">
                       {job.highlights.map((h, i) => (
-                        <div key={i} className="flex items-start gap-2 text-xs text-slate-300/80">
-                          <CheckCircle2 size={13} className="shrink-0 mt-0.5 text-[#76f0d6]" />
+                        <div
+                          key={i}
+                          className="flex items-start gap-2 text-xs text-slate-300/80"
+                        >
+                          <CheckCircle2
+                            size={13}
+                            className="shrink-0 mt-0.5 text-[#76f0d6]"
+                          />
                           <span>{h}</span>
                         </div>
                       ))}
