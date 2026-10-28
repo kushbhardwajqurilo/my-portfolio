@@ -1,4 +1,9 @@
+# https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
 
+# Host
+Host: https://my-portfolio-two-gamma-22.vercel.app
+
+# Sitemaps
 Sitemap: https://my-portfolio-two-gamma-22.vercel.app/sitemap.xml

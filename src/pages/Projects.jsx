@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { ExternalLink, Github, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { projects } from "../data/projects";
+import SEO from "../components/SEO";
+import { buildBreadcrumbs } from "../utils/seoSchemas";
 
 export default function ProjectsPage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -19,8 +21,45 @@ export default function ProjectsPage() {
       ? projects
       : projects.filter((project) => project.category === selectedCategory);
 
+  const projectsSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        name: "Projects & Engineering Builds | Kush Bhardwaj",
+        url: "https://my-portfolio-two-gamma-22.vercel.app/projects",
+        description:
+          "A curated set of builds across web products, mobile experiences, and brand-led interfaces built by Kush Bhardwaj.",
+        hasPart: projects.map((p) => ({
+          "@type": "SoftwareApplication",
+          name: p.title,
+          description: p.description,
+          url: `https://my-portfolio-two-gamma-22.vercel.app/projects/${p.slug}`,
+        })),
+      },
+      buildBreadcrumbs([
+        { name: "Home", url: "/" },
+        { name: "Projects", url: "/projects" },
+      ]),
+    ],
+  };
+
   return (
     <div className="relative pt-24">
+      <SEO
+        title="Featured Projects & Case Studies | Kush Bhardwaj"
+        description="Explore full-stack web applications, mobile apps, and digital systems built by Kush Bhardwaj, including Bharat Bhakti Sangam, Barber Syndicate, and Debt Relief India."
+        keywords={[
+          "Kush Bhardwaj Projects",
+          "Full-Stack Portfolio",
+          "React Web Applications",
+          "Next.js Projects",
+          "Mobile Apps React Native",
+          "Software Engineering Portfolio",
+        ]}
+        canonical="https://my-portfolio-two-gamma-22.vercel.app/projects"
+        schema={projectsSchema}
+      />
       <section className="section-wrap py-16 sm:py-20">
         <div className="section-inner">
           <motion.div

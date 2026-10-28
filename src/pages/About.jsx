@@ -37,6 +37,8 @@ import {
 import { FaAws } from "react-icons/fa";
 import { TbApi, TbWorldWww } from "react-icons/tb";
 import { Link } from "react-router-dom";
+import SEO from "../components/SEO";
+import { PERSON_SCHEMA, buildBreadcrumbs } from "../utils/seoSchemas";
 
 export default function AboutPage() {
   const skills = [
@@ -301,8 +303,40 @@ export default function AboutPage() {
     },
   ];
 
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfilePage",
+        name: "About Kush Bhardwaj | Full-Stack Developer & Creative Engineer",
+        url: "https://my-portfolio-two-gamma-22.vercel.app/about",
+        description:
+          "Professional background, technical capabilities, experience, and educational journey of Kush Bhardwaj.",
+        mainEntity: PERSON_SCHEMA,
+      },
+      buildBreadcrumbs([
+        { name: "Home", url: "/" },
+        { name: "About", url: "/about" },
+      ]),
+    ],
+  };
+
   return (
     <div className="relative pt-24">
+      <SEO
+        title="About Me | Kush Bhardwaj - Full-Stack Developer"
+        description="Learn more about Kush Bhardwaj, a full-stack engineer specializing in React, Next.js, Node.js, and cloud systems. Discover skills, experience, and development philosophy."
+        keywords={[
+          "About Kush Bhardwaj",
+          "Kush Bhardwaj Experience",
+          "Full-Stack Developer New Delhi",
+          "Frontend Architecture",
+          "React Next.js Engineer",
+          "Software Engineer Background",
+        ]}
+        canonical="https://my-portfolio-two-gamma-22.vercel.app/about"
+        schema={aboutSchema}
+      />
       <section className="section-wrap py-16 sm:py-20">
         <div className="section-inner">
           <motion.div

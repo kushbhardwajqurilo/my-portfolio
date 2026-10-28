@@ -6,7 +6,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z473VRQJFX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-Z473VRQJFX');
@@ -23,14 +23,17 @@
   <meta name="author" content="Kush Bhardwaj" />
   <meta name="keywords"
     content="Kush Bhardwaj, Full-Stack Developer, Frontend Engineer, React, Node.js, JavaScript, Portfolio, Web Developer" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <meta name="theme-color" content="#0A0A0F" />
   <link rel="canonical" href="https://my-portfolio-two-gamma-22.vercel.app/" />
 
   <!-- Google Search Console Verification -->
   <meta name="google-site-verification" content="aNUwp3ncfYEFhNcNTpaO9nKGpWqlDi8LMpnWwA226fc" />
 
-  <!-- Favicon & Icons -->
+  <!-- Favicon, Manifest & Icons -->
   <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+  <link rel="manifest" href="/site.webmanifest" />
 
   <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
   <meta property="og:type" content="website" />
@@ -64,6 +67,39 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
     rel="stylesheet" />
+
+  <!-- Base JSON-LD Structured Data -->
+  <script type="application/ld+json" id="seo-json-ld">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "name": "Kush Bhardwaj",
+        "jobTitle": "Full-Stack Developer & Creative Engineer",
+        "url": "https://iamkush.in/",
+        "image": "https://res.cloudinary.com/dqwc7j44b/image/upload/v1791955577/Screenshot_2026-10-14_103024_hu2y6g.png",
+        "email": "mailto:kushbhardwaj8800@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "New Delhi",
+          "addressCountry": "India"
+        },
+        "sameAs": [
+          "https://github.com/kush-bhardwaj",
+          "https://www.linkedin.com/in/kushbhardwajdev05",
+          "https://instagram.com/kush_bhardwaj_05"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "name": "Kush Bhardwaj Portfolio",
+        "url": "https://iamkush.in/",
+        "description": "Portfolio of Kush Bhardwaj — Full-stack developer crafting sleek, interactive, and high-performance digital products and web applications."
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body class="antialiased bg-[#0A0A0F] text-white">

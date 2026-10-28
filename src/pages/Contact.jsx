@@ -14,6 +14,8 @@ import {
   CheckCircle,
   AlertCircle,
 } from "lucide-react";
+import SEO from "../components/SEO";
+import { PERSON_SCHEMA, buildBreadcrumbs } from "../utils/seoSchemas";
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -94,8 +96,40 @@ export default function ContactPage() {
     },
   ];
 
+  const contactSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ContactPage",
+        name: "Contact Kush Bhardwaj | Full-Stack Developer",
+        url: "https://my-portfolio-two-gamma-22.vercel.app/contact",
+        description:
+          "Contact Kush Bhardwaj for software development projects, technical leadership, or freelance opportunities.",
+        mainEntity: PERSON_SCHEMA,
+      },
+      buildBreadcrumbs([
+        { name: "Home", url: "/" },
+        { name: "Contact", url: "/contact" },
+      ]),
+    ],
+  };
+
   return (
     <div className="relative pt-24">
+      <SEO
+        title="Contact & Hire | Kush Bhardwaj - Full-Stack Developer"
+        description="Get in touch with Kush Bhardwaj for full-stack web applications, freelance collaborations, or engineering inquiries. Based in New Delhi, India."
+        keywords={[
+          "Contact Kush Bhardwaj",
+          "Hire Full-Stack Developer",
+          "Hire React Engineer",
+          "Kush Bhardwaj Email",
+          "Software Consulting",
+          "Web Developer New Delhi",
+        ]}
+        canonical="https://my-portfolio-two-gamma-22.vercel.app/contact"
+        schema={contactSchema}
+      />
       <section className="section-wrap py-16 sm:py-20">
         <div className="section-inner">
           <motion.div

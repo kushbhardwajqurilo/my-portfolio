@@ -133,15 +133,15 @@ export const projects = [
   {
     id: 4,
     title: "Debt Relief India Admin Panel",
-    slug: slugifyTitle("Barber Syndicate"),
+    slug: slugifyTitle("Debt Relief India Admin Panel"),
     category: "Web Apps",
     featured: true,
     image:
       "https://res.cloudinary.com/dqwc7j44b/image/upload/v1777028262/Screenshot_2026-04-24_161357_ypcpck.png",
     description:
-      "A premium wholesale cosmetics website focused on product clarity, trust, and a polished buying experience for business customers.",
+      "A dedicated administrative operations console to evaluate client calculations, case workloads, and lead workflows securely.",
     longDescription:
-      "Barber Syndicate presents wholesale cosmetics and beauty products in a clean, conversion-focused layout. The site is designed to help buyers understand the catalog quickly, evaluate product quality, and move toward inquiry or purchase with confidence.",
+      "Debt Relief India Admin Panel serves as the operational backbone for advisors and administrators to review user debt submissions, track settlement statuses, view calculator usage analytics, and maintain smooth customer support operations.",
     tech: ["React", "Node.js", "MongoDB", "Cloudinary"],
     links: [
       {
@@ -150,19 +150,19 @@ export const projects = [
       },
     ],
     metrics: [
-      { label: "Audience", value: "B2B buyers" },
-      { label: "Focus", value: "Wholesale" },
-      { label: "Visuals", value: "Product led" },
+      { label: "Role", value: "Internal Admin" },
+      { label: "Security", value: "Role-based" },
+      { label: "Operations", value: "Real-time" },
     ],
     highlights: [
-      "Structured the experience around trust, product presentation, and business intent.",
-      "Used a cleaner content hierarchy to make wholesale browsing easier.",
-      "Designed for responsive browsing across desktop and mobile.",
+      "Streamlined case management and verification workflows for advisors.",
+      "Real-time visualization of debt evaluation metrics and customer applications.",
+      "Built with high-performance responsive interface and structured data tables.",
     ],
     challenge:
-      "The main goal was to make a wholesale catalog feel premium and easy to scan without overwhelming business buyers.",
+      "Designing a dense data dashboard that allows operations teams to rapidly review and action financial hardship applications with zero ambiguity.",
     impact:
-      "The site gives the brand a stronger digital storefront and makes product discovery easier for wholesale inquiries.",
+      "Reduced consultation review turnaround time and created a centralized command center for internal teams.",
   },
   {
     id: 5,

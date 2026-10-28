@@ -1,0 +1,17 @@
+{
+  "name": "Kush Bhardwaj | Full-Stack Developer",
+  "short_name": "Kush Bhardwaj",
+  "description": "Portfolio of Kush Bhardwaj — Full-stack developer crafting sleek, interactive, and high-performance digital products.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A0A0F",
+  "theme_color": "#0A0A0F",
+  "icons": [
+    {
+      "src": "/images/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
+

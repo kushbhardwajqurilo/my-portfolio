@@ -2,6 +2,8 @@ import React from "react";
 import { ArrowLeft, ExternalLink, Github } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
 import { findProjectBySlug } from "../data/projects";
+import SEO from "../components/SEO";
+import { buildProjectSchema, buildBreadcrumbs } from "../utils/seoSchemas";
 
 export default function ProjectDetail() {
   const { slug } = useParams();
@@ -10,6 +12,11 @@ export default function ProjectDetail() {
   if (!project) {
     return (
       <section className="section-wrap pb-24 pt-32">
+        <SEO
+          title="Project Not Found"
+          description="The requested portfolio project could not be found."
+          noindex={true}
+        />
         <div className="section-inner">
           <div className="surface-card-strong p-10 text-center">
             <h1 className="text-4xl font-bold text-white">Project not found</h1>
@@ -26,8 +33,36 @@ export default function ProjectDetail() {
     );
   }
 
+  const projectSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      buildProjectSchema(project),
+      buildBreadcrumbs([
+        { name: "Home", url: "/" },
+        { name: "Projects", url: "/projects" },
+        { name: project.title, url: `/projects/${project.slug}` },
+      ]),
+    ],
+  };
+
   return (
     <div className="pt-24">
+      <SEO
+        title={`${project.title} — Case Study & Engineering Details`}
+        description={`${project.description} Tech stack: ${project.tech?.join(", ")}.`}
+        keywords={[
+          project.title,
+          project.category,
+          ...(project.tech || []),
+          "Kush Bhardwaj",
+          "Web Development",
+          "Software Case Study",
+        ]}
+        canonical={`https://my-portfolio-two-gamma-22.vercel.app/projects/${project.slug}`}
+        ogImage={project.image}
+        ogImageAlt={`${project.title} preview`}
+        schema={projectSchema}
+      />
       <section className="section-wrap py-16">
         <div className="section-inner">
           <Link to="/projects" className="btn-ghost mb-8">
